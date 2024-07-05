@@ -250,3 +250,35 @@ var originalButtonText;
             });
         });
     });
+
+
+    function goToPage(event) {
+    event.preventDefault();
+    const pageNumber = document.getElementById('page-number').value;
+    if (pageNumber) {
+        const currentUrl = new URL(window.location.href);
+        const searchParams = new URLSearchParams(currentUrl.search);
+        searchParams.set('page', pageNumber);
+        currentUrl.search = searchParams.toString();
+        window.location.href = currentUrl.toString();
+    }
+}
+
+function submitFormFilter(radio) {
+    const form = document.getElementById('filterForm');
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData).toString();
+    fetch(`${window.location.pathname}?${params}`)
+        .then(response => response.text())
+        .then(data => {
+            document.body.innerHTML = data; // 
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+        function toggleSearchForm() {
+
+            $('.filterdb').slideToggle('slow');  
+            $('.filterdb').css('display', 'flex');
+        }

@@ -1,17 +1,16 @@
 <?php
-require_once('config.php');
+require_once "config/config.php";
 
-$title = 'Entrar na Sua Conta';
+$title = "Entrar na Sua Conta";
 
-if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
-    header('Location: ?to=inicio');
-    exit;
+if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
+    header("Location: ?to=inicio");
+    exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $usuario = $_POST['usuario'];
-    $senha = $_POST['senha'];
+    $usuario = $_POST["usuario"];
+    $senha = $_POST["senha"];
 
     if (empty($usuario) || empty($senha)) {
         echo "<p class='messageError'>Por favor, preencha todos os campos!</p>";
@@ -29,16 +28,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($resultado && $resultado->num_rows == 1) {
             $user = $resultado->fetch_assoc();
 
-
             $senhaEncrypt = md5($senha);
 
-            if ($senhaEncrypt == $user['user_pass']) {
-                $_SESSION['user'] = $user['userid'];
-                $_SESSION['conta'] = $user['account_id'];
-                $_SESSION['grupo'] = $user['group_id'];
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['sex'] = $user['sex'];
-                
+            if ($senhaEncrypt == $user["user_pass"]) {
+                $_SESSION["user"] = $user["userid"];
+                $_SESSION["conta"] = $user["account_id"];
+                $_SESSION["grupo"] = $user["group_id"];
+                $_SESSION["email"] = $user["email"];
+                $_SESSION["sex"] = $user["sex"];
+
                 echo "<p class='messageSuccess'>Login bem sucedido! Redirecionando...</p>";
 
                 echo "<script>
@@ -46,16 +44,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     window.location.href = '?to=inicio';
                     }, 2000);
                     </script>";
-                } else {
-                    echo "<p class='messageError'>Senha incorreta.</p>";
-                }
             } else {
-                echo "<p class='messageError'>Usuário não encontrado.</p>";
+                echo "<p class='messageError'>Senha incorreta.</p>";
             }
-
-            $stmt->close();
+        } else {
+            echo "<p class='messageError'>Usuário não encontrado.</p>";
         }
+
+        $stmt->close();
     }
+}
 
-
-    ?>
+?>

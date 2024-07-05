@@ -1,8 +1,6 @@
 <!-- ==================  TELA DE INICIO ================ -->
 <div class="boxForm">
-   <div>
-      <a href="?to=logout" class="buttonLogout"><img src="img/sair.png"></a>
-   </div>
+
    <h1>Inicio</h1>
    <h3 align="center">Seja bem Vindo, <?php echo$user;?></h3>
    <a href="#" class="redirectTo" onclick="mostrarFormularioTrocarSenha()">Trocar Senha</a>

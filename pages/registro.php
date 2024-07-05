@@ -14,7 +14,7 @@
          </select>
       </center>
       <div id="message"></div>
-      <p><input type="checkbox" name="termos" id="termos">concorda com nossos <a href="#" onclick="mostrarTermos();">Termos & Condições</a>.</p>
+      <p><input type="checkbox" name="termos" id="termos"> concordar com nossos <a href="#" onclick="mostrarTermos();">Termos & Condições</a>.</p>
       <button id="submitRegistro" type="submit" class="button">Registrar</button>
    </form>
 </div>
@@ -24,8 +24,8 @@
       <div class="termos-container">
          <div class="termos-content">
             <a href="#" onclick="fecharTermos();" class="closeForm"><img src="img/close.png" width="25px" ></a>
-            <h2 align="center">Termos de Uso e Serviço</h2>
-            <h1>Esta política de Termos de Uso e Serviço é válida a partir de <?php echo ucfirst($dataAtual) ?>.</h1>
+            <h1 >Termos de Uso e Serviço</h1>
+            <h2 align="center" style="color: white;">Esta política de Termos de Uso e Serviço é válida a partir de <?php echo ucfirst($dataAtual) ?>.</h2>
             <h4><?php echo$config['NameServer']; ?>, pessoa jurídica de direito privado descreve, através deste documento, as regras de uso do site futvintage.lojavirtualnuvem.com.br e qualquer outro site, loja ou aplicativo operado pelo proprietário.</h4>
             <br>
             Ao navegar neste website, consideramos que você está de acordo com os Termos de Uso e Serviço abaixo.<br><br>
@@ -57,7 +57,7 @@
             Seção 8 - Dados pessoais<br><br>
             Durante a utilização deste website, certos dados pessoais serão coletados e tratados por <?php echo$config['NameServer']; ?> e/ou pelos Parceiros. As regras relacionadas ao tratamento de dados pessoais de <?php echo$config['NameServer']; ?> estão estipuladas na Política de Privacidade.<br><br>
             Seção 9 - Contato<br><br>
-            <p>Caso você tenha qualquer dúvida sobre os Termos de Uso e Serviço, por favor, entre em contato pelo numero de whatsapp: <a href='http://wa.me/55<?php echo$config['WhatsappNumber']; ?>'><?php echo$config['WhatsappNumber']; ?></a> ou <a href="<?php echo $config['LinkDiscord']; ?>">Discord</a> Desde já, agradeço!</p>
+            <p>Caso você tenha qualquer dúvida sobre os Termos de Uso e Serviço, por favor, entre em contato pelo numero de whatsapp: <a href='http://wa.me/55<?php echo$config['WhatsappNumber']; ?>'><?php echo$config['WhatsappNumber']; ?></a> ou <a href="<?php echo $config['LinkDiscord']; ?>">Discord</a> Desde já, agradecemos!</p>
          </div>
       </div>
    </div>

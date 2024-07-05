@@ -2,7 +2,7 @@
 if (isset($_GET['to'])) {
     $nomeDaPagina = $_GET['to'];
 
-    $connPath = "/includes/config.php";
+    $connPath = "/includes/config/config.php";
     $includePath = "/includes/" . $nomeDaPagina . ".php";
     $headerPath = "/header.php";
     $pagesPath = "/pages/" . $nomeDaPagina . ".php";

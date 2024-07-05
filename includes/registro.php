@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('config/config.php');
 setlocale(LC_TIME, 'pt_BR.UTF-8', 'portuguese');
 $dataAtual = strftime('%B %Y');
 
