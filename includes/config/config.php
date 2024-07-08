@@ -6,13 +6,13 @@ $config = [
 
     'DropNormal'        => 100,                                     // Drop Normal (1 = 1%) logo se o drop padrao do item for de 100, o valor sairá 1% de 100 = 1% de drop rate
     'DropMVP'           => 100,                                     // Drop de MVP (1 = 1%) logo se o drop padrao do item for de 100, o valor sairá 1% de 100 = 1% de drop rate
-    'KeyDivinePride'    => 'a259814bb8aa32cb7a046b9d0c8a294c',      // key da api do divine-pride, (necessario para funcionar a  database)
-    'accesstoken'       => 'APP_USR-5850301002742227-041913-99e82f09a4068395a5670aa6be05901f-294370258', // key da api do MercadoPago, (necessario para funcionar a doação)
-    //'accesstoken'     => 'TEST-7268416601183831-062514-18a57054a2fa0ac9aa781295c86de2ce-30312473',// key de teste da api do MercadoPago
-    'url_notification_api'          => 'https://2910-187-84-180-225.ngrok-free.app/sitesimples/includes/notification.php',
-    'url_success'                   => 'https://2910-187-84-180-225.ngrok-free.app/success',                   //URL_PAGAMENTO_APROVADO
-    'url_pending'                   => 'https://2910-187-84-180-225.ngrok-free.app/pending',                   //URL_PAGAMENTO_PENDENTE
-    'url_failure'                   => 'https://2910-187-84-180-225.ngrok-free.app/failure',                   //URL_PAGAMENTO_REJEITADO
+    'KeyDivinePride'    => 'SUA_KEY_DIVINE_PRIDE',      // key da api do divine-pride, (necessario para funcionar a  database)
+    'accesstoken'       => 'SUA_KEY', // key da api do MercadoPago, (necessario para funcionar a doação)
+    //'accesstoken'     => 'SUA_KEY_TESTE',// key de teste da api do MercadoPago
+    'url_notification_api'          => 'SUA_URL/notification.php',
+    'url_success'                   => 'SUA_URL/success',                   //URL_PAGAMENTO_APROVADO
+    'url_pending'                   => 'SUA_URL/pending',                   //URL_PAGAMENTO_PENDENTE
+    'url_failure'                   => 'SUA_URL/failure',                   //URL_PAGAMENTO_REJEITADO
     'LinkDiscord'       => 'https://www.discord.com/',              // Link do Discord
     'LinkInstagram'     => 'https://www.instagram.com/',            // Link do Instagram
     'LinkFacebook'      => 'https://www.facebook.com/facebook',     // Link do Facebook
