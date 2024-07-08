@@ -1,12 +1,12 @@
 <?php
 require_once "config/config.php";
 $title = "Doação";
-/*if (!isset($_SESSION["user"]) || empty($_SESSION["user"])) {
+if (!isset($_SESSION["user"]) || empty($_SESSION["user"])) {
     header("Location: ?to=entrar");
     exit;
 } else {
     $user = $_SESSION["user"];
-}*/
+}
 
 $accesstoken = $config['accesstoken'];
 if(isset($_POST['vl'])) $amount = (float) trim($_POST['vl']);
