@@ -11,12 +11,12 @@
    <div class="containerFormsJS">
       <h1>Troca de Senha</h1>
       <form id="formTrocarSenha">
-         <a href="#" style="float: right;" onclick="fecharFormularioTrocarSenha()" class="closeForm"><img src="img/close.png" ></a>
+         <a href="#" style="float: right;" onclick="fecharFormularioTrocarSenha()" class="closeForm"><img src="img/icones/close.png" ></a>
          <center>
-            <input type="text" name="senhaatual" id="senhaatual" placeholder="Senha Atual">
+            <input type="password" name="senhaatual" id="senhaatual" placeholder="Senha Atual">
             <input type="hidden" name="IDformTrocarSenha" id="IDformTrocarSenha" value="<?php echo rand();?>" >
-            <input type="text" name="senhanova" id="senhanova" placeholder="Nova Senha">
-            <input type="text" name="confsenhanova" id="confsenhanova" placeholder="Confirmar Nova Senha">
+            <input type="password" name="senhanova" id="senhanova" placeholder="Nova Senha">
+            <input type="password" name="confsenhanova" id="confsenhanova" placeholder="Confirmar Nova Senha">
          </center>
          <div id="message-TrocarSenha"></div>
          <button id="submitTrocarSenha" type="submit" class="button">Trocar Senha</button>
@@ -28,7 +28,7 @@
    <div class="containerFormsJS">
       <h1>Troca de Senha</h1>
       <form id="formTrocarEmail">
-         <a href="#" style="float: right;" onclick="fecharFormularioTrocarEmail()" class="closeForm"><img src="img/close.png" ></a>
+         <a href="#" style="float: right;" onclick="fecharFormularioTrocarEmail()" class="closeForm"><img src="img/icones/close.png" ></a>
          <center>
             <input type="text" name="emailatual" id="emailatual" placeholder="Email Atual">
             <input type="hidden" name="IDformTrocarEmail" id="IDformTrocarEmail" value="<?php echo rand();?>" >

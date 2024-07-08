@@ -1,44 +1,60 @@
 <?php
-return [
-	'weapon' => [
-		'1haxe'			=> '<img src="img/icones/machado1.png" width="24px"> Machado de Uma Mão',
-		'1hspear'		=> '<img src="img/icones/lanca1.png" width="24px"> Lança de Uma Mão',
-		'1hsword'		=> '<img src="img/icones/espada1.png" width="24px"> Espada de Uma Mão',
-		'2haxe'			=> '<img src="img/icones/machado2.png" width="24px"> Machado de Duas Mãos',
-		'2hspear'		=> '<img src="img/icones/lanca2.png" width="24px"> Lança de Duas Mãos',
-		'2hstaff'		=> '<img src="img/icones/cajado2.png" width="24px"> Cajado de Duas Mãos',
-		'2hsword'		=> '<span style="font-size: 24px;">⚔️</span> Espada de Duas Mãos',
-		'book'			=> '<img src="img/icones/livro.png" width="24px"> Livro',
-		'bow'			=> '<img src="img/icones/arco.png" width="24px"> Arco',
-		'dagger'		=> '<img src="img/icones/adaga.png" width="24px"> Adaga',
-		'gatling'		=> '<img src="img/icones/gatling.png" width="24px"> Metralhadora Gatling',
-		'grenade'		=> '<img src="img/icones/lancagranadas.png" width="24px"> Lança-Granadas',
-		'huuma'			=> '<img src="img/icones/huuma.png" width="24px"> Shuriken Huuma',
-		'katar'			=> '<img src="img/icones/katar.png" width="24px"> Katar',
-		'knuckle'		=> '<img src="img/icones/punho.png" width="24px"> Punho',
-		'mace'			=> '<img src="img/icones/maca.png" width="24px"> Maça',
-		'musical'		=> '<img src="img/icones/instrumento.png" width="24px"> Instrumento Musical',
-		'revolver'		=> '<img src="img/icones/revolver.png" width="24px"> Revólver',
-		'rifle'			=> '<img src="img/icones/rifle.png" width="24px"> Rifle',
-		'shotgun'		=> '<img src="img/icones/espingarda.png" width="24px"> Espingarda',
-		'staff'			=> '<img src="img/icones/cajado1.png" width="24px"> Cajado',
-		'whip'			=> '<img src="img/icones/chicote.png" width="24px"> Chicote'
-	],
-	'ammo' => [
-		'arrow'			=> '<img src="img/icones/flecha.png"> Flecha',
-		'bullet'		=> '<img src="img/icones/bala.png" > Projétil',
-		'dagger'		=> '<img src="img/icones/adagaarremessavel.png" width="24px"> Adaga Arremessável',
-		'cannonball'	=> '<span style="font-size: 24px;">💣</span> Bala de Canhão',
-		'grenade'		=> '<img src="img/icones/granada.png" width="24px"> Granada',
-		'kunai'			=> '<img src="img/icones/kunai.png" width="24px"> Kunai',
-		'shell'			=> '🐚 Concha',
-		'shuriken'		=> '<img src="img/icones/shuriken.png" width="24px"> Shuriken',
-		'throwweapon'	=> '<img src="img/icones/arremesavel.png" width="24px"> Arremessável'
-	],
-	'card' => [
-		'N/A'			=> '<span style="font-size: 24px;">❓</span> N/A',
-		'enchant'		=> 'Encantamento'
-	],
-	'N/A'				=> '<span style="font-size: 24px;">❓</span> N/A'
-];
+
+
+function itemSubType($type){
+	if($type == 'weapon'){
+		return [
+			'1haxe'			=> 'Machado de Uma Mão',
+			'1hspear'		=> 'Lança de Uma Mão',
+			'1hsword'		=> 'Espada de Uma Mão',
+			'2haxe'			=> 'Machado de Duas Mãos',
+			'2hspear'		=> 'Lança de Duas Mãos',
+			'2hstaff'		=> 'Cajado de Duas Mãos',
+			'2hsword'		=> 'Espada de Duas Mãos',
+			'book'			=> 'Livro',
+			'bow'			=> 'Arco',
+			'dagger'		=> 'Adaga',
+			'gatling'		=> 'Metralhadora Gatling',
+			'grenade'		=> 'Lança-Granadas',
+			'huuma'			=> 'Shuriken Huuma',
+			'katar'			=> 'Katar',
+			'knuckle'		=> 'Punho',
+			'mace'			=> 'Maça',
+			'musical'		=> 'Instrumento Musical',
+			'revolver'		=> 'Revólver',
+			'rifle'			=> 'Rifle',
+			'shotgun'		=> 'Espingarda',
+			'staff'			=> 'Cajado',
+			'whip'			=> 'Chicote'
+
+		];
+
+	}elseif($type == 'ammo'){
+		return [
+			'arrow'			=> 'Flecha',
+			'bullet'		=> 'Projétil',
+			'dagger'		=> 'Adaga Arremessável',
+			'cannonball'	=> 'Bala de Canhão',
+			'grenade'		=> 'Granada',
+			'kunai'			=> 'Kunai',
+			'shell'			=> 'Concha',
+			'shuriken'		=> 'Shuriken',
+			'throwweapon'	=> 'Arremessável'
+		];
+	}elseif($type == 'card'){
+		return [
+			'unknown'		=> 'N/A',
+			'enchant'		=> 'Encantamento'
+		];
+	}else{
+		return 	['unknown'	=> 'N/A'];
+	}
+}
+function itemSubTypeIcon($type, $subtybe) {
+		if($type == 'ammo' || $type == 'weapon'){
+    		return '<img src="img/icones/categoriaitem/'.$type.'/'.$subtybe.'.png" style="width:24px; margin-right: 5px;">';
+    	}else{
+    		return '<img src="img/icones/categoriaitem/'.$subtybe.'.png" style="width:24px; margin-right: 5px;">';
+    	}
+}	
 ?>

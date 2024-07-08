@@ -19,13 +19,15 @@
       <div id="filter" class="filterdb">   
          <input type="hidden" name="to" value="itens">
            <input type="hidden" name="page" value="1">
-             <?php foreach ($types as $key => $type): ?>
-                 <?php if ($type !== 'N/A' && $key !== 'N/A'): ?>
-                     <div class="radio-item">
-                         <input id="tipo<?php echo $key; ?>" type="radio" name="filter" value="<?php echo ucfirst($key); ?>"onclick="submitFormFilter(this)">
-                         <label for="tipo<?php echo $key; ?>" style="color:white;"><?php echo itemType($key); ?></label>
-                     </div>
-                 <?php endif; ?>
+             <?php foreach (itemType() as $key => $type): ?>                
+                  <div class="radio-item">
+                     <?php if (isset($_GET['filter']) && $key == $_GET['filter']): ?>
+                      <input id="tipo<?php echo $key; ?>" type="radio" name="filter" value="<?php echo$key; ?>"onclick="submitFormFilter(this)" <?php echo isset($_GET['filter']) && $_GET['filter'] == $key ? 'checked' : ''; ?>>
+                     <?php else: ?>
+                     <input id="tipo<?php echo $key; ?>" type="radio" name="filter" value="<?php echo$key; ?>"onclick="submitFormFilter(this)">
+                     <?php endif ?>
+                      <label for="tipo<?php echo $key; ?>"><?php echo itemTypeIcon($key) ?><?php echo $type; ?></label>
+                  </div>         
              <?php endforeach; ?>
          </div>
       </form>
@@ -46,15 +48,15 @@
             <td><?php echo $item['id']; ?></td>
             <td width="24"><img src="<?php echo iconImage($item['id']); ?>" /></td>
             <td align="left"><?php echo $item['name_english']; ?></td>
-            <td><?php echo $types[$item['type']]; ?></td>
+            <td><?php echo itemTypeIcon($item['type']) ?><?php echo itemType()[$item['type']]; ?></td>
             <?php if ($item['type'] == 'weapon' || $item['type'] == 'ammo'): ?>
-            <td><?php echo $subtypes[$item['type']][$item['subtype']]; ?></td>
+            <td><?php echo itemSubTypeIcon($item['type'],$item['subtype'])?><?php echo itemSubType($item['type'])[$item['subtype']]; ?></td>
             <?php elseif(($item['type'] == 'card') && ($item['id'] > 4453)): ?>
-            <td><img src="img/icones/encanto.png" width="24px"> Encantamento</td>
+            <td><?php echo itemSubTypeIcon('card', 'enchant')?>Encantamento</td>
             <?php elseif(($item['type'] == 'card') && ($item['id'] <= 4453)): ?>
             <td><img src="<?php echo iconImage($item['id']); ?>"width="24px" /> Carta</td>
             <?php else: ?>
-            <td><?php echo $subtypes[$item['subtype']]; ?></td>
+            <td><?php echo itemSubTypeIcon($item['type'],$item['subtype'])?><?php echo itemSubType($item['type'])[$item['subtype']]; ?></td>
             <?php endif ?>
             <td><span style="font-size: 24px;">💸</span> <?php echo $item['price_buy']; ?></td>
             <td><span style="font-size: 24px;">⚖️</span> <?php echo $item['weight']; ?></td>
@@ -74,7 +76,7 @@
       <div class="footer-table">
          <form id="page-form" onsubmit="goToPage(event)">
             <label for="page-number" style="color: white;">Ir Para:</label>
-            <input type="number" id="page-number" name="page" style="width: 50px;">
+            <input type="number" id="page-number" name="page" style="width: 75px;" min="1"max="<?php echo $total_pages; ?>">
             <button class="btn-filter" type="submit" style="width: 50px;">Ir</button>
          </form>
       </div>

@@ -119,10 +119,13 @@
 }
 
 #slider-result{
-	background-color: rgb(0, 0, 0, 0.5);
+	background-color: var(--temaBox);
     /*background-color: #ffe4e4;*/
     padding: 30px 0px 30px 0px;
-    width: 100%;
+    width: auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 5px;
 }
 
 #slider-result a {

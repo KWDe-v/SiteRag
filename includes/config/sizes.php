@@ -1,8 +1,16 @@
 <?php
-// Tamanhos de monstros em rA.
-return [
-	 'Small' 	=> '<img src="img/icones/pequeno.png" width="30px"> Pequeno',
-	 'Medium' 	=> '<span style="font-size:24px;">🟨</span> Médio',
-	 'Large' 	=> '<img src="img/icones/grande.png" width="30px"> Grande'
-];
+
+function sizeMonster() {
+    return [
+      'Small'  => 'Pequeno',
+      'Medium' => 'Médio',
+      'Large'  => 'Grande'
+   ];
+}
+
+
+function sizeMonsterIcon($key) {
+	return '<img src="img/icones/tamanhos/'.$key.'.png" width="30px">';
+}
+
 ?>

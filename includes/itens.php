@@ -28,16 +28,16 @@ if (isset($_GET["busca"]) || !empty($_GET["busca"])) {
             $itens = [];
             while ($row = $resultado->fetch_assoc()) {
                 $item = [
-                    "id" => !empty($row["id"]) ? $row["id"] : "N/A",
+                    "id" => !empty($row["id"]) ? $row["id"] : "unknown",
                     "name_english" => !empty($row["name_english"])
                         ? $row["name_english"]
-                        : "N/A",
+                        : "unknown",
                     "type" => !empty($row["type"])
                         ? strtolower($row["type"])
-                        : "N/A",
+                        : "unknown",
                     "subtype" => !empty($row["subtype"])
                         ? strtolower($row["subtype"])
-                        : "N/A",
+                        : "unknown",
                     "price_buy" => !empty($row["price_buy"])
                         ? $row["price_buy"]
                         : "N/A",
@@ -77,16 +77,16 @@ if (isset($_GET["busca"]) || !empty($_GET["busca"])) {
             $itens = [];
             while ($row = $resultado->fetch_assoc()) {
                 $item = [
-                    "id" => !empty($row["id"]) ? $row["id"] : "N/A",
+                    "id" => !empty($row["id"]) ? $row["id"] : "unknown",
                     "name_english" => !empty($row["name_english"])
                         ? $row["name_english"]
-                        : "N/A",
+                        : "unknown",
                     "type" => !empty($row["type"])
                         ? strtolower($row["type"])
-                        : "N/A",
+                        : "unknown",
                     "subtype" => !empty($row["subtype"])
                         ? strtolower($row["subtype"])
-                        : "N/A",
+                        : "unknown",
                     "price_buy" => !empty($row["price_buy"])
                         ? $row["price_buy"]
                         : "N/A",
@@ -126,16 +126,16 @@ if (isset($_GET["busca"]) || !empty($_GET["busca"])) {
             $itens = [];
             while ($row = $resultado->fetch_assoc()) {
                 $item = [
-                    "id" => !empty($row["id"]) ? $row["id"] : "N/A",
+                    "id" => !empty($row["id"]) ? $row["id"] : "unknown",
                     "name_english" => !empty($row["name_english"])
                         ? $row["name_english"]
-                        : "N/A",
+                        : "unknown",
                     "type" => !empty($row["type"])
                         ? strtolower($row["type"])
-                        : "N/A",
+                        : "unknown",
                     "subtype" => !empty($row["subtype"])
                         ? strtolower($row["subtype"])
-                        : "N/A",
+                        : "unknown",
                     "price_buy" => !empty($row["price_buy"])
                         ? $row["price_buy"]
                         : "N/A",
@@ -155,9 +155,6 @@ if (isset($_GET["busca"]) || !empty($_GET["busca"])) {
 
 $conn->close();
 
-$types = $config["ItemTypes"];
-$subtypes = $config["ItemSubTypes"];
-asort($types);
 
 $items_per_page = 10;
 $page = isset($_GET["page"]) ? (int) $_GET["page"] : 1;

@@ -6,7 +6,7 @@
  <?php else: ?>
 <main id="monsters-main">
    <section>
-      <div id="db-container">
+      <div class="db-container">
          <?php if (!empty($mvp_drops)):?>
          <img src="img/mvp.png" class="icon" width="75px">
          <?php endif?>

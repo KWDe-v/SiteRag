@@ -6,53 +6,7 @@ if (empty($_GET["page"]) || !isset($_GET["page"])) {
     exit();
 }
 
-if (!isset($_GET["busca"]) || empty($_GET["busca"])) {
-    try {
-        if ($config["Renewal"] == false) {
-            $sql =
-                "SELECT id, name_aegis, name_english, level, hp, sp, size, race, element, base_exp, job_exp FROM mob_db ";
-            $sql .= "UNION ALL ";
-            $sql .=
-                "SELECT id, name_aegis, name_english, level, hp, sp, size, race, element, base_exp, job_exp FROM mob_db2 ";
-        } else {
-            $sql =
-                "SELECT id, name_aegis, name_english, level, hp, sp, size, race, element, base_exp, job_exp FROM mob_db_re ";
-            $sql .= "UNION ALL ";
-            $sql .=
-                "SELECT id, name_aegis, name_english, level, hp, sp, size, race, element, base_exp, job_exp FROM mob_db2_re ";
-        }
-        $sql .= "ORDER BY id";
-
-        $resultado = mysqli_query($conn, $sql); //
-
-        if ($resultado->num_rows > 0) {
-            $monstros = [];
-            while ($row = $resultado->fetch_assoc()) {
-                $monstro = [
-                    "id" => $row["id"],
-                    "name_aegis" => $row["name_aegis"],
-                    "name_english" => $row["name_english"],
-                    "level" => $row["level"],
-                    "hp" => $row["hp"],
-                    "sp" => $row["sp"],
-                    "size" => $row["size"],
-                    "race" => $row["race"],
-                    "element" => $row["element"],
-                    "base_exp" => $row["base_exp"],
-                    "job_exp" => $row["job_exp"],
-                ];
-
-                $monstros[] = $monstro;
-            }
-        } else {
-            $monstros = [];
-        }
-    } catch (Exception $e) {
-        define("__ERROR__", true);
-        include "fatalerror.php";
-        exit();
-    }
-} elseif (isset($_GET["busca"])) {
+if (isset($_GET["busca"]) || !empty($_GET["busca"])) {
     $busca = $_GET["busca"];
     try {
         if ($config["Renewal"] == false) {
@@ -83,6 +37,7 @@ if (!isset($_GET["busca"]) || empty($_GET["busca"])) {
                     "element" => $row["element"],
                     "base_exp" => $row["base_exp"],
                     "job_exp" => $row["job_exp"],
+                    "mvp_exp" => $row["mvp_exp"],
                 ];
 
                 $monstros[] = $monstro;
@@ -91,6 +46,137 @@ if (!isset($_GET["busca"]) || empty($_GET["busca"])) {
             $monstros = [];
             header("Location: ?to=monstros&page=1&error=naoencontrado");
             exit();
+        }
+    } catch (Exception $e) {
+        define("__ERROR__", true);
+        include "fatalerror.php";
+        exit();
+    }
+} elseif (isset($_GET["filter"]) || !empty($_GET["filter"])) {
+    if ($_GET["filter"] == "mvp_exp") {
+        try {
+            if ($config["Renewal"] == false) {
+                $sql = "SELECT * FROM mob_db WHERE mvp_exp > 1 ";
+                $sql .= "UNION ALL ";
+                $sql .= "SELECT * FROM mob_db2 WHERE mvp_exp > 1 ";
+            } else {
+                $sql = "SELECT * FROM mob_db_re WHERE mvp_exp > 1 ";
+                $sql .= "UNION ALL ";
+                $sql .= "SELECT * FROM mob_db2_re WHERE mvp_exp > 1 ";
+            }
+            $sql .= "ORDER BY id";
+
+            $resultado = mysqli_query($conn, $sql);
+
+            $monstros = [];
+            if (mysqli_num_rows($resultado) > 0) {
+                while ($row = mysqli_fetch_assoc($resultado)) {
+                    $monstro = [
+                        "id" => $row["id"],
+                        "name_aegis" => $row["name_aegis"],
+                        "name_english" => $row["name_english"],
+                        "level" => $row["level"],
+                        "hp" => $row["hp"],
+                        "sp" => $row["sp"],
+                        "size" => $row["size"],
+                        "race" => $row["race"],
+                        "element" => $row["element"],
+                        "base_exp" => $row["base_exp"],
+                        "job_exp" => $row["job_exp"],
+                        "mvp_exp" => $row["mvp_exp"],
+                    ];
+                    $monstros[] = $monstro;
+                }
+            }
+        } catch (Exception $e) {
+            define("__ERROR__", true);
+            include "fatalerror.php";
+            exit();
+        }
+    } else {
+        $filter = $_GET["filter"];
+        try {
+            if ($config["Renewal"] == false) {
+                $sql = "SELECT * FROM mob_db WHERE size LIKE '%$filter%' OR race LIKE '%$filter%' OR element LIKE '%$filter%'";
+                $sql .= "UNION ALL ";
+                $sql .= "SELECT * FROM mob_db2 WHERE size LIKE '%$filter%' OR race LIKE '%$filter%' OR element LIKE '%$filter%'";
+            } else {
+                $sql = "SELECT * FROM mob_db_re WHERE size LIKE '%$filter%' OR race LIKE '%$filter%' OR element LIKE '%$filter%'";
+                $sql .= "UNION ALL ";
+                $sql .= "SELECT * FROM mob_db2_re WHERE size LIKE '%$filter%' OR race LIKE '%$filter%' OR element LIKE '%$filter%'";
+            }
+            $sql .= "ORDER BY id";
+
+            $resultado = mysqli_query($conn, $sql); //
+
+            if ($resultado->num_rows > 0) {
+                $monstros = [];
+                while ($row = $resultado->fetch_assoc()) {
+                    $monstro = [
+                        "id" => $row["id"],
+                        "name_aegis" => $row["name_aegis"],
+                        "name_english" => $row["name_english"],
+                        "level" => $row["level"],
+                        "hp" => $row["hp"],
+                        "sp" => $row["sp"],
+                        "size" => $row["size"],
+                        "race" => $row["race"],
+                        "element" => $row["element"],
+                        "base_exp" => $row["base_exp"],
+                        "job_exp" => $row["job_exp"],
+                        "mvp_exp" => $row["mvp_exp"],
+                    ];
+
+                    $monstros[] = $monstro;
+                }
+            } else {
+                $monstros = [];
+                header("Location: ?to=monstros&page=1&error=naoencontrado");
+                exit();
+            }
+        } catch (Exception $e) {
+            define("__ERROR__", true);
+            include "fatalerror.php";
+            exit();
+        }
+    }
+} else {
+    try {
+        if ($config["Renewal"] == false) {
+            $sql = "SELECT * FROM mob_db ";
+            $sql .= "UNION ALL ";
+            $sql .= "SELECT * FROM mob_db2 ";
+        } else {
+            $sql = "SELECT * FROM mob_db_re ";
+            $sql .= "UNION ALL ";
+            $sql .= "SELECT * FROM mob_db2_re ";
+        }
+        $sql .= "ORDER BY id";
+
+        $resultado = mysqli_query($conn, $sql); //
+
+        if ($resultado->num_rows > 0) {
+            $monstros = [];
+            while ($row = $resultado->fetch_assoc()) {
+                $monstro = [
+                    "id" => $row["id"],
+                    "name_aegis" => $row["name_aegis"],
+                    "name_english" => $row["name_english"],
+                    "level" => $row["level"],
+                    "hp" => $row["hp"],
+                    "sp" => $row["sp"],
+                    "size" => $row["size"],
+                    "race" => $row["race"],
+                    "element" => $row["element"],
+                    "base_exp" => $row["base_exp"],
+                    "job_exp" => $row["job_exp"],
+                    "mvp_exp" => $row["mvp_exp"],
+                ];
+
+                $monstros[] = $monstro;
+            }
+        } else {
+            $monstros = [];
         }
     } catch (Exception $e) {
         define("__ERROR__", true);
@@ -124,8 +210,5 @@ if ($_GET["page"] > $total_pages || $_GET["page"] < 1) {
     exit();
 }
 
-$tamanho = $config["MonsterSizes"];
-$elemento = $config["Elements"];
-$raca = $config["MonsterRaces"];
 
 ?>

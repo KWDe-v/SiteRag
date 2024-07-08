@@ -8,7 +8,7 @@
    <section>
       <div class="db-container" style="padding: 0;">
          <?php if (!empty($mvp_drops)):?>
-         <img src="img/mvp.png" class="icon" width="75px">
+         <img src="img/icones/mvp.png" class="icon" width="75px">
          <?php endif?>
          <div id="itemDescription">
             <div class="col-xs-10">
@@ -25,11 +25,11 @@
                         <li>Nível</li>
                         <li><?php echo $lvl;?></li>
                         <li>Raça</li>
-                        <li><?php echo $racas[$race];?></li>
+                        <li><?php echo raceMonster()[$race];?></li>
                         <li>Propriedade</li>
-                        <li><?php echo $elementos[$element];?> <?php echo $element_lvl;?></li>
+                        <li><?php echo elementMonster()[$element];?> <?php echo $element_lvl;?></li>
                         <li>Tamanho</li>
-                        <li><?php echo $tamanhos[$size];?></li>
+                        <li><?php echo sizeMonster()[$size];?></li>
                         <li>Exp Base</li>
                         <li><?php echo $expBase;?></li>
                         <li>Exp Classe</li>
@@ -96,7 +96,7 @@
                <label style="display: flex; align-items: center;">
                <img src="img/icones/monstros-icon.png" alt="Monstros Icon" style="margin-right: 5px;">
                Monstros
-               <img src="img/mvp.png" alt="MVP Icon" width="35px" style="margin-left: 5px;">
+               <img src="img/icones/mvp.png" alt="MVP Icon" width="35px" style="margin-left: 5px;">
                </label>
                <h5><?php echo $nomeItemMVP['name_english']; ?></h5>
                <label>Taxa de Drop: <?php echo min(100, $dropsMVP['rate'] / 100 * ($config['DropMVP'] / 100)); ?>%</label> 

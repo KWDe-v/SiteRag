@@ -6,7 +6,7 @@
  <?php else: ?>
 <main id="itens-main">
    <section>
-      <div id="db-container">
+      <div class="db-container">
       <div id="itemDescription">
          <article class="items-emphasis">
             <div class="item-img">

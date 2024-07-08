@@ -46,9 +46,11 @@ if ($resultado->num_rows > 0) {
         $refinavel = $linha["refineable"];
     }
 
+
+  
     $preco = $preco ?? "N/A";
     $peso = $peso ?? "N/A";
-    $tipo = itemType(strtolower($tipo)) ?? "N/A";
+    $tipo = itemType()[strtolower($tipo)] ?? "N/A";
     $ataque = $ataque ?? "N/A";
     $defesa = $defesa ?? "N/A";
     $slots = $slots ?? "N/A";

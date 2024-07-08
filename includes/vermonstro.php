@@ -308,37 +308,6 @@ if ($stmt) {
     }
 }
 
-$elementos = [
-    "Neutral" => "Neutro",
-    "Water" => "Água",
-    "Earth" => "Terra",
-    "Fire" => "Fogo",
-    "Wind" => "Vento",
-    "Poison" => "Veneno",
-    "Holy" => "Sagrado",
-    "Dark" => "Sombrio",
-    "Ghost" => "Fantasma",
-    "Undead" => "Maldito",
-];
-
-$racas = [
-    "Formless" => "Amorfo",
-    "Undead" => "Morto-vivo",
-    "Brute" => "Bruto",
-    "Plant" => "Planta",
-    "Insect" => "Inseto",
-    "Fish" => "Peixe",
-    "Demon" => "Demônio",
-    "Demihuman" => "Humanóide",
-    "Angel" => "Anjo",
-    "Dragon" => "Dragão",
-];
-
-$tamanhos = [
-    "Small" => "Pequeno",
-    "Medium" => "Médio",
-    "Large" => "Grande",
-];
 
 $title = "Visualizando $nomeMonstro";
 ?>

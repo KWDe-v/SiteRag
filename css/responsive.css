@@ -213,8 +213,7 @@
 	.item-img{
 		float: left;
 		padding: 50px;
-		background-color: #fff;
-		border-right: 1px solid #56070c;
+
 		
 		display: -webkit-flex;
 		display: flex;
@@ -253,13 +252,12 @@
 	.items-emphasis{
 		display: -webkit-flex;
 		display: flex;
-		background-color: rgb(0, 0, 0, 0.5);
-		border: 3px solid #56070c;	
+
+
 		border-bottom: 0;
 	}
 	.table-info{
-		background-color: var(--temaBox);
-		/*background-color: #ff4b8a;*/
+
 		display: -webkit-flex;
 		display: flex;
 		-webkit-justify-content: center;
@@ -495,7 +493,8 @@
 }
 @media (min-width: 1001px){
 	.table-info{
-		padding: 30px;
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 	.information {
 		margin-right: 30px;

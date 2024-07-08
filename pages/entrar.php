@@ -18,7 +18,7 @@
    <div class="containerFormsJS">
       <h1>Recuperação de Senha</h1>
       <form id="formRecuperarSenha">
-         <a href="#" style="float: right;" onclick="fecharFormularioResetSenha()" class="closeForm"><img src="img/close.png" ></a>
+         <a href="#" style="float: right;" onclick="fecharFormularioResetSenha()" class="closeForm"><img src="img/icones/close.png" ></a>
          <center>
             <input type="text" name="usernameResetSenha" id="usernameResetSenha" placeholder="Nome de Usuário">
             <input type="hidden" name="IDformRecuperarSenha" id="IDformRecuperarSenha" value="<?php echo rand();?>" >

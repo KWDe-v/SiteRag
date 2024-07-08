@@ -23,7 +23,7 @@
    <div id="termos-container">
       <div class="termos-container">
          <div class="termos-content">
-            <a href="#" onclick="fecharTermos();" class="closeForm"><img src="img/close.png" width="25px" ></a>
+            <a href="#" onclick="fecharTermos();" class="closeForm"><img src="img/icones/close.png" width="25px" ></a>
             <h1 >Termos de Uso e Serviço</h1>
             <h2 align="center" style="color: white;">Esta política de Termos de Uso e Serviço é válida a partir de <?php echo ucfirst($dataAtual) ?>.</h2>
             <h4><?php echo$config['NameServer']; ?>, pessoa jurídica de direito privado descreve, através deste documento, as regras de uso do site futvintage.lojavirtualnuvem.com.br e qualquer outro site, loja ou aplicativo operado pelo proprietário.</h4>
